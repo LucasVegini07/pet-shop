@@ -7,10 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import petshop.PetShop.modulos.animal.model.animal;
 import petshop.PetShop.modulos.animal.service.animalService;
 import petshop.PetShop.modulos.pessoa.model.cliente;
@@ -34,6 +31,12 @@ public class animalController {
         cliente cliente = objectMapper.readValue( clienteString, cliente.class );
         return new ResponseEntity<>(animalService.cadastrarAnimal(animal, cliente), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/animal", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> buscaTodosProdutos () {
+        return new ResponseEntity<>(animalService.teste(), HttpStatus.OK);
+    }
+
 
     @PutMapping(value = "/animal", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> atuaizarAnimal (

@@ -26,6 +26,10 @@ public class animalService {
         return animalRepository.save(a);
     }
 
+    public String teste(){
+        return "TESTE";
+    }
+
 
 
 }
