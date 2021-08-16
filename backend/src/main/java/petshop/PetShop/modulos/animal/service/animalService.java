@@ -6,6 +6,7 @@ import petshop.PetShop.modulos.animal.model.animal;
 import petshop.PetShop.modulos.animal.repository.animalRepository;
 import petshop.PetShop.modulos.pessoa.model.cliente;
 import petshop.PetShop.modulos.pessoa.repository.clienteRepository;
+import java.util.List;
 
 @Service
 public class animalService {
@@ -26,9 +27,14 @@ public class animalService {
         return animalRepository.save(a);
     }
 
-    public String teste(){
-        return "TESTE";
+    public List getAllByClientId(String usuarioId){
+        return animalRepository.getByCliente_Id(Integer.parseInt(usuarioId));
     }
+
+    public animal getById(String animalId){
+        return animalRepository.getById(Integer.parseInt(animalId));
+    }
+
 
 
 

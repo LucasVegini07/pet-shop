@@ -18,6 +18,7 @@ public class vacina implements Serializable {
     private String nome;
     private String descricao;
 
+    public vacina(){}
 
     public vacina(int id, String nome, String descricao) {
         this.id = id;

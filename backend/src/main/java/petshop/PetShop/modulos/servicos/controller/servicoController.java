@@ -6,15 +6,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import petshop.PetShop.modulos.animal.model.animal;
 import petshop.PetShop.modulos.pessoa.model.cliente;
 import petshop.PetShop.modulos.servicos.model.servico;
 import petshop.PetShop.modulos.servicos.service.servicoService;
 
 @Controller
-
+@RequestMapping("/api")
 public class servicoController {
 
     @Autowired
@@ -35,6 +34,10 @@ public class servicoController {
         return new ResponseEntity<>(servicoService.cadastrarService(servico, cliente, animal), HttpStatus.OK);
     }
 
-
+    @GetMapping(value = "/servico/{animalId}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> getByAnimalId(
+            @PathVariable String animalId) {
+        return new ResponseEntity<>(servicoService.getAllByAnimalId(animalId), HttpStatus.OK);
+    }
 
 }

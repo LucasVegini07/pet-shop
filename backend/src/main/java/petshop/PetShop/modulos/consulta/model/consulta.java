@@ -41,18 +41,21 @@ public class consulta implements Serializable {
     @JoinColumn(name = "id_funcionario")
     private funcionario funcionario;
 
-    private LocalDateTime horaInicio;
-    private LocalDate data;
+    private LocalDateTime data;
     private String descricao;
+    private Boolean finalizada = false;
 
     public consulta() {}
 
-    public consulta(int id, cliente cliente, animal animal, LocalDateTime horaInicio, LocalDate data) {
+    public consulta(int id, petshop.PetShop.modulos.remedio.model.remedio remedio, petshop.PetShop.modulos.vacina.model.vacina vacina, petshop.PetShop.modulos.pessoa.model.cliente cliente, petshop.PetShop.modulos.animal.model.animal animal, petshop.PetShop.modulos.pessoa.model.funcionario funcionario, LocalDateTime data, String descricao) {
         this.id = id;
-        this.animal = animal;
+        this.remedio = remedio;
+        this.vacina = vacina;
         this.cliente = cliente;
-        this.horaInicio = horaInicio;
+        this.animal = animal;
+        this.funcionario = funcionario;
         this.data = data;
+        this.descricao = descricao;
     }
 
     public int getId() {
@@ -79,20 +82,20 @@ public class consulta implements Serializable {
         this.vacina = vacina;
     }
 
-    public petshop.PetShop.modulos.animal.model.animal getAnimal() {
-        return animal;
-    }
-
-    public void setAnimal(petshop.PetShop.modulos.animal.model.animal animal) {
-        this.animal = animal;
-    }
-
     public petshop.PetShop.modulos.pessoa.model.cliente getCliente() {
         return cliente;
     }
 
     public void setCliente(petshop.PetShop.modulos.pessoa.model.cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public petshop.PetShop.modulos.animal.model.animal getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(petshop.PetShop.modulos.animal.model.animal animal) {
+        this.animal = animal;
     }
 
     public petshop.PetShop.modulos.pessoa.model.funcionario getFuncionario() {
@@ -103,19 +106,11 @@ public class consulta implements Serializable {
         this.funcionario = funcionario;
     }
 
-    public LocalDateTime getHoraInicio() {
-        return horaInicio;
-    }
-
-    public void setHoraInicio(LocalDateTime horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 
@@ -125,5 +120,13 @@ public class consulta implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Boolean getFinalizada() {
+        return finalizada;
+    }
+
+    public void setFinalizada(Boolean finalizada) {
+        this.finalizada = finalizada;
     }
 }

@@ -25,13 +25,13 @@ public class funcionarioService {
         return funcionarioRepository.save(f);
     }
 
-    public boolean autenticaFuncionario(String email, String senha){
+    public int autenticaFuncionario(String email, String senha){
         if(funcionarioRepository.existsByemail(email)){
             funcionario f = funcionarioRepository.getByEmail(email);
             if(f.getSenha().equals(senha))
-                return true;
+                return f.getId();
         }
-        return false;
+        return 0;
     }
 
     public funcionario getFuncionarioByEmail(String email){

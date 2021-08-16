@@ -9,6 +9,8 @@ import petshop.PetShop.modulos.pessoa.repository.clienteRepository;
 import petshop.PetShop.modulos.servicos.model.servico;
 import petshop.PetShop.modulos.servicos.repository.servicoRepository;
 
+import java.util.List;
+
 @Service
 public class servicoService {
 
@@ -27,5 +29,8 @@ public class servicoService {
         s.setCliente(cli);
         s.setAnimal(a);
         return servicoRepository.save(s);
+    }
+    public List getAllByAnimalId(String animalId){
+        return servicoRepository.getByAnimal_Id(Integer.parseInt(animalId));
     }
 }

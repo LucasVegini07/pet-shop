@@ -23,16 +23,14 @@ public class servico implements Serializable {
     @JoinColumn(name = "id_animal")
     private petshop.PetShop.modulos.animal.model.animal animal;
 
-    private LocalDateTime horaInicio;
-    private LocalDate data;
+    private LocalDateTime data;
 
     public servico(){}
 
-    public servico(int id, petshop.PetShop.modulos.pessoa.model.cliente cliente, petshop.PetShop.modulos.animal.model.animal animal, LocalDateTime horaInicio, LocalDate data) {
+    public servico(int id, petshop.PetShop.modulos.pessoa.model.cliente cliente, petshop.PetShop.modulos.animal.model.animal animal, LocalDateTime data) {
         this.id = id;
         this.cliente = cliente;
         this.animal = animal;
-        this.horaInicio = horaInicio;
         this.data = data;
     }
 
@@ -60,19 +58,11 @@ public class servico implements Serializable {
         this.animal = animal;
     }
 
-    public LocalDateTime getHoraInicio() {
-        return horaInicio;
-    }
-
-    public void setHoraInicio(LocalDateTime horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 }

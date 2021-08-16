@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import petshop.PetShop.modulos.remedio.model.remedio;
 import petshop.PetShop.modulos.remedio.repository.remedioRepository;
 
+import java.util.List;
+
 @Service
 public class remedioService {
 
@@ -13,5 +15,8 @@ public class remedioService {
 
     public remedio cadastrarRemedio(remedio r) { return remedioRepository.save(r);}
     public remedio atualizaRemedio(remedio r) { return remedioRepository.save(r);}
+
+    public List<remedio> getRemedios() { return remedioRepository.findAllByOrderByIdAsc() ;}
+
 
 }

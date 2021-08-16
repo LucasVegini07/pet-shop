@@ -37,7 +37,7 @@ public class funcionarioController {
         return new ResponseEntity<>(funcionarioService.cadastrarFuncionario(funcionario), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/login")
+    @PostMapping(value = "/funcionario/login")
     public ResponseEntity<?> login(
             @RequestParam(value = "email") String email, @RequestParam(value = "senha") String senha) throws Exception {
         return new ResponseEntity<>(funcionarioService.autenticaFuncionario(email, senha), HttpStatus.OK);

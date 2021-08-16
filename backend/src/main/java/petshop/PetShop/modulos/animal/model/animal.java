@@ -16,8 +16,10 @@ public class animal implements Serializable {
     private int id;
 
     private String nome;
+    private String sexo;
     private String especie;
     private String raca;
+    private String temperamento;
     private LocalDate data;
 
     @ManyToOne
@@ -26,11 +28,13 @@ public class animal implements Serializable {
 
     public animal(){}
 
-    public animal(int id, String nome, String especie, String raca, LocalDate data, petshop.PetShop.modulos.pessoa.model.cliente cliente) {
+    public animal(int id, String nome, String sexo, String especie, String raca, String temperamento, LocalDate data, petshop.PetShop.modulos.pessoa.model.cliente cliente) {
         this.id = id;
         this.nome = nome;
+        this.sexo = sexo;
         this.especie = especie;
         this.raca = raca;
+        this.temperamento = temperamento;
         this.data = data;
         this.cliente = cliente;
     }
@@ -65,6 +69,14 @@ public class animal implements Serializable {
 
     public void setRaca(String raca) {
         this.raca = raca;
+    }
+
+    public String getTemperamento() {
+        return temperamento;
+    }
+
+    public void setTemperamento(String temperamento) {
+        this.temperamento = temperamento;
     }
 
     public LocalDate getData() {

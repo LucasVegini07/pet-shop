@@ -34,6 +34,11 @@ public class remedioController {
         return new ResponseEntity<>(remedioService.atualizaRemedio(remedio), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/remedio", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> getRemedios () {
+        return new ResponseEntity<>(remedioService.getRemedios(), HttpStatus.OK);
+    }
+
 
 
 }

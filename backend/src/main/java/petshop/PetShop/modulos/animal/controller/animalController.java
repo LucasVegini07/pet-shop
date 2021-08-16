@@ -32,9 +32,17 @@ public class animalController {
         return new ResponseEntity<>(animalService.cadastrarAnimal(animal, cliente), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/animal", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> buscaTodosProdutos () {
-        return new ResponseEntity<>(animalService.teste(), HttpStatus.OK);
+    @GetMapping(value = "/animal/{clienteId}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> getContatoByNome(
+            @PathVariable String clienteId) {
+        return new ResponseEntity<>(animalService.getAllByClientId(clienteId), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/animal/get/{animalId}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> getContatoById(
+            @PathVariable String animalId)
+    {
+        return new ResponseEntity<>(animalService.getById(animalId), HttpStatus.OK);
     }
 
 

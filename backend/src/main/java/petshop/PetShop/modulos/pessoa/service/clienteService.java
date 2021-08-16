@@ -24,13 +24,13 @@ public class clienteService {
         return c;
     }
 
-    public boolean autenticaCliente(String email, String senha){
+    public int autenticaCliente(String email, String senha){
         if(clienteRepository.existsByemail(email)){
             cliente c = clienteRepository.getByEmail(email);
             if(c.getSenha().equals(senha))
-                return true;
+                return c.getId();
         }
-        return false;
+        return 0;
     }
 
 
