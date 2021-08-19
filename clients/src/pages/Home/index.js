@@ -55,7 +55,7 @@ export default function Home() {
           <ExitToApp style={{ color: "#fff" }}></ExitToApp>
         </IconButton>{" "}
       </div>
-
+      {console.log("Pets: ", pets)}
       {pets &&
         pets.map((pet) => (
           <>
@@ -85,9 +85,7 @@ export default function Home() {
                     alignItems: "center",
                   }}
                 >
-                  <Avatar style={{ backgroundColor: "#903DF4" }}>
-                    {pet.nome[0]}
-                  </Avatar>
+                  <Avatar style={{ backgroundColor: "#903DF4" }}>Lu</Avatar>
                   <Typography style={{ marginLeft: 16 }}>{pet.nome}</Typography>
                 </div>
                 <IconButton>

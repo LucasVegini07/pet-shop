@@ -88,7 +88,8 @@ export default function PetServices(props) {
               overflow: "auto",
             }}
           >
-            {services &&
+            {props.serviceNome !== "Veterinário" &&
+              services &&
               services.map((service) => (
                 <div
                   style={{
@@ -100,6 +101,31 @@ export default function PetServices(props) {
                       .isBefore(moment())
                       ? "#52C41A"
                       : "#FAAD14",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    borderWidth: 1,
+                    borderRadius: 5,
+                    padding: 5,
+                    borderStyle: "solid",
+                  }}
+                >
+                  <div>{props.serviceNome}</div>
+                  <div>
+                    {moment(service.data).subtract(3, "hours").format("lll")}
+                  </div>
+                </div>
+              ))}
+            {console.log("Services: ", services)}
+            {props.serviceNome === "Veterinário" &&
+              services &&
+              services.map((service) => (
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    marginBottom: 8,
+                    borderColor: service.finalizada ? "#52C41A" : "#FAAD14",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "space-between",

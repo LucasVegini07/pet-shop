@@ -85,7 +85,7 @@ export default function PetRegister(props) {
         {pet.nome && (
           <>
             <Avatar style={{ backgroundColor: "#903DF4", marginLeft: 12 }}>
-              {pet.nome[0]}
+              Lu
             </Avatar>
             <Typography
               style={{ marginLeft: 16, fontWeight: 600, fontSize: 18 }}
